@@ -1,0 +1,85 @@
+# Copyright (C) 2016 Automattic
+# Copyright (C) 2017 Zeeland Family
+# This file is distributed under the GNU General Public License v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Avidly Overlay Search 2.0\n"
+"Report-Msgid-Bugs-To: https://https://github.com/ZeelandFamily/zf-theme/"
+"issues\n"
+"POT-Creation-Date: 2021-11-22 15:54+0200\n"
+"PO-Revision-Date: 2021-11-22 15:54+0200\n"
+"Last-Translator: \n"
+"Language-Team: Avidly Websites & Services <help@avidlyagency.com>\n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.0\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __;_e;_n:2,1;_x:2c,1;esc_attr__;__ngettext:1,2;"
+"__ngettext_noop:1,2;_n_noop:1,2;_c;_nc:4c,1,2;_nx_noop:4c,1,2;_ex:1,2c;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
+"_nx:4c,1,2\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: functions.php:28 public/class-overlay-search-public.php:120
+msgid "Search"
+msgstr "Haku"
+
+#: public/class-overlay-search-public.php:118
+msgid "Search from site"
+msgstr "Hae sivustolta"
+
+#: public/class-overlay-search-public.php:139
+msgid "Close search"
+msgstr "Sulje haku"
+
+#~ msgid "Search:"
+#~ msgstr "Hae:"
+
+#~ msgid "No results found."
+#~ msgstr "Ei hakutuloksia."
+
+#~ msgctxt "admin: field title"
+#~ msgid "Field title"
+#~ msgstr "Kentän otsikko"
+
+#~ msgctxt "admin: field label"
+#~ msgid "Field label"
+#~ msgstr "Kentän label"
+
+#~ msgctxt "admin: block label"
+#~ msgid "Block title"
+#~ msgstr "Lohkon otsikko"
+
+#~ msgctxt "admin: block description"
+#~ msgid "Block description"
+#~ msgstr "Lohkon kuvaus"
+
+#~ msgctxt "admin: block keywork"
+#~ msgid "Keyword"
+#~ msgstr "Avainsana"
+
+#~ msgctxt "admin: block keywork"
+#~ msgid "Example"
+#~ msgstr "Esimerkki"
+
+#~ msgid "Kotka editor"
+#~ msgstr "Kotka päätoimittaja"
+
+#~ msgid "Kotka administrator"
+#~ msgstr "Kotka ylläpitäjä"
+
+#~ msgctxt "widget description"
+#~ msgid "Custom author widget with ACF."
+#~ msgstr "Listaa kirjoittajia."
+
+#~ msgctxt "widget post count"
+#~ msgid "posts"
+#~ msgstr "postausta"
+
+#~ msgctxt "widget description"
+#~ msgid "Custom posts widget with ACF."
+#~ msgstr "Listaa artikkeleja."

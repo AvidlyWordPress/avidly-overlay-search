@@ -1,0 +1,24 @@
+body.a11y-overlaysearch__dialog-visible {
+  overflow: hidden;
+}
+
+.a11y-overlaysearch__dialog {
+	display: none;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    position: fixed;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
+    overflow-y: auto;
+}
+
+.a11y-overlaysearch__dialog--show {
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.7);
+}
