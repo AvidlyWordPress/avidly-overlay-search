@@ -106,8 +106,8 @@ class A11y_Overlay_Search_Public {
 	 */
 	private function search_form() {
 
-		// Detect current language if Polylang is used.
-		$lang = ( function_exists( 'pll_current_language' ) ) ? pll_current_language() : '';
+		// Detect current home URL if Polylang is used.
+		$home_url = ( function_exists( 'pll_home_url' ) ) ? pll_home_url() : home_url( '/' );
 
 		$form = sprintf(
 			'<div class="a11y-overlaysearch__wrapper">
@@ -117,7 +117,7 @@ class A11y_Overlay_Search_Public {
 			<button type="submit" form="a11y-overlaysearch" value="%4$s" class="a11y-overlaysearch__submit a11y-overlaysearch--icon"><span class="screen-reader-text">%4$s</span>%5$s</button>
 			</form>
 			</div>',
-			esc_url( home_url( '/' ) . $lang ), // Form action.
+			esc_url( $home_url ), // Form action.
 			esc_html__( 'Search from site', 'overlay-search' ), // Label & placeholder text.
 			get_search_query(), // Input value.
 			esc_html__( 'Search', 'overlay-search' ), // Submit value.
