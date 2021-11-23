@@ -1,12 +1,11 @@
 <?php
-
 /**
  * The public-facing functionality of the plugin.
  *
  * @since      1.0.0
  *
- * @package    A11y_Overlay_Search
- * @subpackage A11y_Overlay_Search/public
+ * @package    Overlay_Search
+ * @subpackage Overlay_Search/public
  */
 
 /**
@@ -15,16 +14,15 @@
  * Defines the plugin name, version, and two examples hooks for how to
  * enqueue the public-facing stylesheet and JavaScript.
  *
- * @package    A11y_Overlay_Search
- * @subpackage A11y_Overlay_Search/public
- * @author     Henri Avoketo, Avidly
+ * @package    Overlay_Search
+ * @subpackage Overlay_Search/public
  */
-class A11y_Overlay_Search_Public {
+class Overlay_Search_Public {
 
 	/**
 	 * The ID of this plugin.
 	 *
-	 * @since    1.0.0
+	 * @since 1.0.0
 	 * @access   private
 	 * @var      string    $plugin_name    The ID of this plugin.
 	 */
@@ -33,7 +31,7 @@ class A11y_Overlay_Search_Public {
 	/**
 	 * The version of this plugin.
 	 *
-	 * @since    1.0.0
+	 * @since 1.0.0
 	 * @access   private
 	 * @var      string    $version    The current version of this plugin.
 	 */
@@ -42,9 +40,9 @@ class A11y_Overlay_Search_Public {
 	/**
 	 * Initialize the class and set its properties.
 	 *
-	 * @since    1.0.0
-	 * @param      string    $plugin_name       The name of the plugin.
-	 * @param      string    $version    The version of this plugin.
+	 * @since 1.0.0
+	 * @param string $plugin_name The name of the plugin.
+	 * @param string $version The version of this plugin.
 	 */
 	public function __construct( $plugin_name, $version ) {
 
@@ -56,7 +54,7 @@ class A11y_Overlay_Search_Public {
 	/**
 	 * Register the stylesheets for the public-facing side of the site.
 	 *
-	 * @since    1.0.0
+	 * @since 1.0.0
 	 */
 	public function enqueue_styles() {
 
@@ -64,10 +62,10 @@ class A11y_Overlay_Search_Public {
 		 * This function is provided for demonstration purposes only.
 		 *
 		 * An instance of this class should be passed to the run() function
-		 * defined in A11y_Overlay_Search_Loader as all of the hooks are defined
+		 * defined in Overlay_Search_Loader as all of the hooks are defined
 		 * in that particular class.
 		 *
-		 * The A11y_Overlay_Search_Loader will then create the relationship
+		 * The Overlay_Search_Loader will then create the relationship
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
@@ -79,7 +77,7 @@ class A11y_Overlay_Search_Public {
 	/**
 	 * Register the JavaScript for the public-facing side of the site.
 	 *
-	 * @since    1.0.0
+	 * @since 1.0.0
 	 */
 	public function enqueue_scripts() {
 
@@ -87,10 +85,10 @@ class A11y_Overlay_Search_Public {
 		 * This function is provided for demonstration purposes only.
 		 *
 		 * An instance of this class should be passed to the run() function
-		 * defined in A11y_Overlay_Search_Loader as all of the hooks are defined
+		 * defined in Overlay_Search_Loader as all of the hooks are defined
 		 * in that particular class.
 		 *
-		 * The A11y_Overlay_Search_Loader will then create the relationship
+		 * The Overlay_Search_Loader will then create the relationship
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */

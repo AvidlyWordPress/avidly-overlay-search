@@ -21,7 +21,7 @@
  *
  * @since      1.0.0
  *
- * @package    A11y_Overlay_Search
+ * @package    Overlay_Search
  */
 
 // If uninstall not called from WordPress, then exit.

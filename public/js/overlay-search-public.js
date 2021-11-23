@@ -1,48 +1,52 @@
 ( function( $ ) {
 
-  // document ready start
-  $(function() {
+	// Document ready start.
+	$(function() {
 
-	let elements = $('div, footer, header, a, button, form, input, select').not('.a11y-overlaysearch__dialog, .a11y-overlaysearch__dialog *');
+		// Open overlay search from button.
+		$('.a11y-overlaysearch__open').click(function(e) {
+			toggleSearch();
+		});
 
-	// Open overlay search from button.
-	$('.a11y-overlaysearch__open').click(function(e) {
-		$('.a11y-overlaysearch__dialog').addClass('a11y-overlaysearch__dialog--show');
-		$('body').addClass('a11y-overlaysearch__dialog-visible');
-		elements.attr('aria-hidden', 'true');
-		$('.a11y-overlaysearch__input').focus();
-		console.log( $('.a11y-overlaysearch__input') );
+		// Close overlay search from button.
+		$('.a11y-overlaysearch__close').click(function(e) {
+			toggleSearch();
+		});
+
+		// Close search by clicking anywhere outside form.
+		window.onclick = function(event) {
+			if ( $(event.target).hasClass( 'a11y-overlaysearch__dialog--show' ) ) {
+				toggleSearch();
+			}
+		}
+
+		// Close search from escape and allow scrolling again.
+		$(document).keydown(function(e){
+			if(e.keyCode == 27) {
+				toggleSearch();
+			}
+		});
+
 	});
 
-	// Close overlay search from button.
-	$('.a11y-overlaysearch__close').click(function(e) {
-		$('.a11y-overlaysearch__dialog').removeClass('a11y-overlaysearch__dialog--show');
-		$('body').removeClass('a11y-overlaysearch__dialog-visible');
-		elements.removeAttr('aria-hidden');
-		$('.a11y-overlaysearch__open').focus();
-	});
+	/**
+	 * Create toggle functionality to open/close search dialog.
+	 */
+	function toggleSearch() {
+		let elements = $('div, footer, header, a, button, form, input, select').not('.a11y-overlaysearch__dialog, .a11y-overlaysearch__dialog *');
 
-	// Close search by clicking anywhere outside form.
-	window.onclick = function(event) {
-		if ( $(event.target).hasClass( 'a11y-overlaysearch__dialog--show' ) ) {
-			$('.a11y-overlaysearch__dialog').removeClass('a11y-overlaysearch__dialog--show');
-			$('body').removeClass('a11y-overlaysearch__dialog-visible');
+		$('.a11y-overlaysearch__dialog').toggleClass('a11y-overlaysearch__dialog--show');
+		$('body').toggleClass('a11y-overlaysearch__dialog-visible');
+
+		if ( $('.a11y-overlaysearch__dialog').hasClass('a11y-overlaysearch__dialog--show') ) {
+			elements.attr('aria-hidden', 'true');
+			$('.a11y-overlaysearch__input').focus();
+		} else {
 			elements.removeAttr('aria-hidden');
 			$('.a11y-overlaysearch__open').focus();
 		}
 	}
 
-	// Close search from escape and allow scrolling again.
-	$(document).keydown(function(e){
-		if(e.keyCode == 27) {
-			$('.a11y-overlaysearch__dialog').removeClass('a11y-overlaysearch__dialog--show');
-			$('body').removeClass('a11y-overlaysearch__dialog-visible');
-			elements.removeAttr('aria-hidden');
-			$('.a11y-overlaysearch__open').focus();
-		}
-	});
-
-  });
 } )( jQuery );
 
 // Focus  trap for a11y-overlaysearch__dialog.

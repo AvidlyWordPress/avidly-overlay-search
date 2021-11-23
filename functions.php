@@ -2,7 +2,7 @@
 /**
  * Forms and dialog functionality.
  *
- * @package A11y_Overlay_Search
+ * @package Overlay_Search
  */
 
 /**

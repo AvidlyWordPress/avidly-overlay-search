@@ -1,5 +1,4 @@
 <?php
-
 /**
  * The file that defines the core plugin class
  *
@@ -8,8 +7,8 @@
  *
  * @since      1.0.0
  *
- * @package    A11y_Overlay_Search
- * @subpackage A11y_Overlay_Search/includes
+ * @package    Overlay_Search
+ * @subpackage Overlay_Search/includes
  */
 
 /**
@@ -20,28 +19,23 @@
  *
  * Also maintains the unique identifier of this plugin as well as the current
  * version of the plugin.
- *
- * @since      1.0.0
- * @package    A11y_Overlay_Search
- * @subpackage A11y_Overlay_Search/includes
- * @author     Henri Avoketo, Avidly
  */
-class A11y_Overlay_Search {
+class Overlay_Search {
 
 	/**
 	 * The loader that's responsible for maintaining and registering all hooks that power
 	 * the plugin.
 	 *
-	 * @since    1.0.0
+	 * @since 1.0.0
 	 * @access   protected
-	 * @var      A11y_Overlay_Search_Loader    $loader    Maintains and registers all hooks for the plugin.
+	 * @var      Overlay_Search_Loader    $loader    Maintains and registers all hooks for the plugin.
 	 */
 	protected $loader;
 
 	/**
 	 * The unique identifier of this plugin.
 	 *
-	 * @since    1.0.0
+	 * @since 1.0.0
 	 * @access   protected
 	 * @var      string    $plugin_name    The string used to uniquely identify this plugin.
 	 */
@@ -50,7 +44,7 @@ class A11y_Overlay_Search {
 	/**
 	 * The current version of the plugin.
 	 *
-	 * @since    1.0.0
+	 * @since 1.0.0
 	 * @access   protected
 	 * @var      string    $version    The current version of the plugin.
 	 */
@@ -63,7 +57,7 @@ class A11y_Overlay_Search {
 	 * Load the dependencies, define the locale, and set the hooks for the admin area and
 	 * the public-facing side of the site.
 	 *
-	 * @since    1.0.0
+	 * @since 1.0.0
 	 */
 	public function __construct() {
 		if ( defined( 'OVERLAY_SEARCH_VERSION' ) ) {
@@ -84,14 +78,14 @@ class A11y_Overlay_Search {
 	 *
 	 * Include the following files that make up the plugin:
 	 *
-	 * - A11y_Overlay_Search_Loader. Orchestrates the hooks of the plugin.
-	 * - A11y_Overlay_Search_i18n. Defines internationalization functionality.
-	 * - A11y_Overlay_Search_Public. Defines all hooks for the public side of the site.
+	 * - Overlay_Search_Loader. Orchestrates the hooks of the plugin.
+	 * - Overlay_Search_I18n. Defines internationalization functionality.
+	 * - Overlay_Search_Public. Defines all hooks for the public side of the site.
 	 *
 	 * Create an instance of the loader which will be used to register the hooks
 	 * with WordPress.
 	 *
-	 * @since    1.0.0
+	 * @since 1.0.0
 	 * @access   private
 	 */
 	private function load_dependencies() {
@@ -114,22 +108,22 @@ class A11y_Overlay_Search {
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-overlay-search-public.php';
 
-		$this->loader = new A11y_Overlay_Search_Loader();
+		$this->loader = new Overlay_Search_Loader();
 
 	}
 
 	/**
 	 * Define the locale for this plugin for internationalization.
 	 *
-	 * Uses the A11y_Overlay_Search_i18n class in order to set the domain and to register the hook
+	 * Uses the Overlay_Search_I18n class in order to set the domain and to register the hook
 	 * with WordPress.
 	 *
-	 * @since    1.0.0
+	 * @since 1.0.0
 	 * @access   private
 	 */
 	private function set_locale() {
 
-		$plugin_i18n = new A11y_Overlay_Search_i18n();
+		$plugin_i18n = new Overlay_Search_I18n();
 
 		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
 
@@ -139,12 +133,12 @@ class A11y_Overlay_Search {
 	 * Register all of the hooks related to the public-facing functionality
 	 * of the plugin.
 	 *
-	 * @since    1.0.0
+	 * @since 1.0.0
 	 * @access   private
 	 */
 	private function define_public_hooks() {
 
-		$plugin_public = new A11y_Overlay_Search_Public( $this->get_plugin_name(), $this->get_version() );
+		$plugin_public = new Overlay_Search_Public( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
@@ -155,7 +149,7 @@ class A11y_Overlay_Search {
 	/**
 	 * Run the loader to execute all of the hooks with WordPress.
 	 *
-	 * @since    1.0.0
+	 * @since 1.0.0
 	 */
 	public function run() {
 		$this->loader->run();
@@ -176,7 +170,7 @@ class A11y_Overlay_Search {
 	 * The reference to the class that orchestrates the hooks with the plugin.
 	 *
 	 * @since     1.0.0
-	 * @return    A11y_Overlay_Search_Loader    Orchestrates the hooks of the plugin.
+	 * @return    Overlay_Search_Loader    Orchestrates the hooks of the plugin.
 	 */
 	public function get_loader() {
 		return $this->loader;
