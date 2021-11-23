@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       Accessible Overlay Search
  * Description:       Accessible overlay search dialog.
- * Version:           2.0.0
+ * Version:           1.0.0
  * Author:            Henkka Avoketo, Avidly
  * Author URI:        https://avidly.fi
  * License:           GPL-2.0+
