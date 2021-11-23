@@ -6,7 +6,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
 
-Accessible overlay search with live search results. Supports Relevanssi and Polylang.
+Accessible overlay search with live search results. Supports Polylang.
 
 == Usage ==
 
