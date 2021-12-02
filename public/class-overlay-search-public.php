@@ -114,7 +114,7 @@ class Overlay_Search_Public {
 
 			// Disable results if it isn't Polylang Pro
 			if ( ! class_exists( 'PLL_REST_Post' ) ) {
-				$results = '';
+				$results = false;
 			}
 		}
 
