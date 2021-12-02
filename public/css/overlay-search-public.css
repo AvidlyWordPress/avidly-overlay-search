@@ -22,3 +22,34 @@ body.a11y-overlaysearch__dialog-visible {
     display: flex;
     background-color: rgba(0, 0, 0, 0.7);
 }
+
+.a11y-overlaysearch__container {
+    position: relative;
+    max-width: 650px;
+    width: 100%;
+    margin: 0 2rem;
+}
+
+.a11y-overlaysearch_results {
+    position: absolute;
+    background-color: white;
+    width: 100%;
+    left: 0;
+    right: 0;
+}
+
+.a11y-overlaysearch__form {
+    display: flex;
+    align-items: center;
+}
+
+.a11y-overlaysearch__input {
+    width: 100%;
+    max-width: calc(100% - 55px);
+}
+
+.a11y-overlaysearch__close {
+    position: absolute;
+    right: 0;
+    top: -70px;
+}
