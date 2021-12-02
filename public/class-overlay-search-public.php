@@ -107,15 +107,24 @@ class Overlay_Search_Public {
 		// Detect current home URL if Polylang is used.
 		$home_url = ( function_exists( 'pll_home_url' ) ) ? pll_home_url() : home_url( '/' );
 
+		$results = '<ul class="a11y-overlaysearch_results"></ul>';
+
+		// Check if Polylang exists
+		if ( function_exists( 'pll_the_languages' ) ) {
+
+			// Disable results if it isn't Polylang Pro
+			if ( ! class_exists( 'PLL_REST_Post' ) ) {
+				$results = '';
+			}
+		}
+
 		$form = sprintf(
 			'<div class="a11y-overlaysearch__wrapper">
 			<form id="a11y-overlaysearch" role="search" method="get" class="a11y-overlaysearch__form" action="%1$s">
 			<label for="s" class="screen-reader-text">%2$s</label>
 			<input placeholder="%2$s" autocomplete="off" type="search" value="%3$s" name="s" class="a11y-overlaysearch__input" autofocus />
 			<button type="submit" form="a11y-overlaysearch" value="%4$s" class="a11y-overlaysearch__submit a11y-overlaysearch--icon"><span class="screen-reader-text">%4$s</span>%5$s</button>
-			</form>
-			<ul class="a11y-overlaysearch_results"></ul>
-			</div>',
+			</form>'. $results . '</div>',
 			esc_url( $home_url ), // Form action.
 			esc_html__( 'Search from site', 'overlay-search' ), // Label & placeholder text.
 			get_search_query(), // Input value.
