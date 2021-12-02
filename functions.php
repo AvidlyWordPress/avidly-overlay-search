@@ -31,3 +31,54 @@ function a11y_overlaysearch_button( $show_label = true, $class = '', $svg = '' )
 
 	return $button;
 }
+
+/**
+ * Query callback
+ *
+ */
+function a11y_overlaysearch_query_callback( $query ) {
+	$results = [];
+
+	$query = new WP_Query([
+		's'                       => sanitize_text_field( $query['s'] ),
+	    'post_status'             => 'publish',
+	    'posts_per_page'          => 25,
+	    'no_found_rows'           => true,
+	 ]);
+
+	 if ( function_exists( 'relevanssi_do_query' ) ) {
+	 	relevanssi_do_query( $query );
+	 }
+
+	if ( $query->have_posts() ) {
+		while ( $query->have_posts() ) {
+	    	$query->the_post();
+
+		    $results[ get_the_ID() ] = [
+		        'id'        => get_the_ID(),
+		        'title'     => get_the_title(),
+		        'permalink' => get_the_permalink(),
+		        'post_type' => get_post_type_object(get_post_type())->labels->singular_name,
+		    ];
+	    }
+	} 
+
+	wp_reset_query();
+
+	return $results;
+}
+
+/**
+ * Set locale
+ *
+ */
+if ( wp_is_json_request()) {
+  add_filter( 'locale', 'a11y_overlaysearch_set_json_locale' );
+  function a11y_overlaysearch_set_json_locale( $lang ) {
+    $current_language = $_GET['lang'];
+
+    if ( isset( $current_language ) ) {
+      return $current_language;
+    }
+  }
+}

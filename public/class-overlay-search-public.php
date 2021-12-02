@@ -114,6 +114,7 @@ class Overlay_Search_Public {
 			<input placeholder="%2$s" autocomplete="off" type="search" value="%3$s" name="s" class="a11y-overlaysearch__input" autofocus />
 			<button type="submit" form="a11y-overlaysearch" value="%4$s" class="a11y-overlaysearch__submit a11y-overlaysearch--icon"><span class="screen-reader-text">%4$s</span>%5$s</button>
 			</form>
+			<ul class="a11y-overlaysearch_results"></ul>
 			</div>',
 			esc_url( $home_url ), // Form action.
 			esc_html__( 'Search from site', 'overlay-search' ), // Label & placeholder text.
@@ -143,4 +144,46 @@ class Overlay_Search_Public {
 
 		echo $overlay_search; // phpcs:ignore
 	}
+
+	/**
+	 * Register rest route
+	 *
+	 * @return void
+	 */
+	public function register_rest_route() {
+	  $theme = wp_get_theme()->get( 'TextDomain' );
+	  $route = $theme . '/v2';
+
+	  register_rest_route( $route, '/search', [
+	    'methods'   => 'GET',
+	    'callback'  => 'a11y_overlaysearch_query_callback',
+	    'permission_callback' => '__return_true',
+	  ]);
+	}
+
+	/**
+	 * Search scripts
+	 *
+	 * @return void
+	 */
+	public function search_scripts() {
+		wp_register_script( 'accessible_overlay_stylesheet', '');
+		wp_enqueue_script( 'accessible_overlay_stylesheet', ['jquery'] );
+		$get_theme = wp_get_theme()->get( 'TextDomain' );
+		$theme = array( 'get_themename' => $get_theme );
+	 	wp_localize_script( 'accessible_overlay_stylesheet', 'theme_name', $theme );
+	}
+
+	/**
+	 * Translations
+	 *
+	 * @return void
+	 */
+	public function search_translations() {
+		wp_register_script( 'accessible_overlay_translations', '');
+	  	wp_enqueue_script( 'accessible_overlay_translations', ['jquery'] );
+	  	$translations = array( 'no_results_found' => __( 'No results found.', 'overlay-search' ) );
+	  	wp_localize_script( 'accessible_overlay_translations', 'translations', $translations );
+	}
+
 }
