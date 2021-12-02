@@ -1,5 +1,5 @@
 === Accessible overlay search ===
-Author: Henkka Avoketo
+Author: Henkka Avoketo, Avidly
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
