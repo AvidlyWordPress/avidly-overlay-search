@@ -160,14 +160,14 @@ class Overlay_Search_Public {
 	 * @return void
 	 */
 	public function register_rest_route() {
-	  $theme = wp_get_theme()->get( 'TextDomain' );
-	  $route = $theme . '/v2';
+		$theme = wp_get_theme()->get( 'TextDomain' );
+	  	$route = $theme . '/v2';
 
-	  register_rest_route( $route, '/search', [
-	    'methods'   => 'GET',
-	    'callback'  => 'a11y_overlaysearch_query_callback',
-	    'permission_callback' => '__return_true',
-	  ]);
+		register_rest_route( $route, '/search', [
+		    'methods'   => 'GET',
+		    'callback'  => 'a11y_overlaysearch_query_callback',
+		    'permission_callback' => '__return_true',
+	  	]);
 	}
 
 	/**
