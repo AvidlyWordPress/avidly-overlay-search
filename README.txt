@@ -13,7 +13,7 @@ $class (string)    = add custom classes for button. Defaults to none.
 $svg (string)      = use custom SVG as button icon. Defaults to icon from Heroicons.
 
 Example:
-<?php echo accessible_overlay_search_button( false, 'my-custom-class', '<svg>...</svg>' ); ?>
+<?php echo a11y_overlaysearch_button( false, 'my-custom-class', '<svg>...</svg>' ); ?>
 
 == Polylang ==
 
