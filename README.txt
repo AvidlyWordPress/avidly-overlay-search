@@ -5,7 +5,7 @@ Accessible overlay search functionality. Supports Relevanssi and Polylang Pro.
 Output a11y_overlaysearch_button() function anywhere in the theme and search will appear.
 
 Example:
-<?php echo accessible_overlay_search_button(); ?>
+<?php echo a11y_overlaysearch_button(); ?>
 
 Function will accept three parameters:
 $show_label (bool) = true/false to display button text visually. Defaults to true. If false, text will be visible to screen readers only.
