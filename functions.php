@@ -40,10 +40,12 @@ function a11y_overlaysearch_query_callback( $query ) {
 	$results = [];
 
 	$query = new WP_Query([
-		's'                       => sanitize_text_field( $query['s'] ),
-	    'post_status'             => 'publish',
-	    'posts_per_page'          => 25,
-	    'no_found_rows'           => true,
+		's'					=> sanitize_text_field( $query['s'] ),
+	    'post_status'       => 'publish',
+	    'orderby' 			=> 'title',
+	    'order' 			=> 'ASC',
+	    'posts_per_page'    => 25,
+	    'no_found_rows'     => true,
 	 ]);
 
 	 if ( function_exists( 'relevanssi_do_query' ) ) {
