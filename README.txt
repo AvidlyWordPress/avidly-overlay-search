@@ -1,4 +1,4 @@
-Accessible overlay search functionality. Supports Relevanssi and Polylang Pro.
+Accessible overlay search functionality. Supports Custom Post Types, Relevanssi and Polylang Pro.
 
 == Usage ==
 
