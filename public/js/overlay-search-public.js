@@ -67,7 +67,7 @@
 
 		// Close search from escape and allow scrolling again.
 		$(document).keydown(function(e){
-			if(e.keyCode == 27) {
+			if ( $('body').hasClass('a11y-overlaysearch__dialog-visible') && (e.keyCode == 27) ) {
 				toggleSearch();
 			}
 		});
