@@ -121,7 +121,7 @@ class Overlay_Search_Public {
 		$form = sprintf(
 			'<form id="a11y-overlaysearch" role="search" method="get" class="a11y-overlaysearch__form" action="%1$s">
 			<label for="s" class="screen-reader-text">%2$s</label>
-			<input placeholder="%2$s" autocomplete="off" type="search" value="%3$s" name="s" class="a11y-overlaysearch__input" autofocus />
+			<input placeholder="%2$s" autocomplete="off" type="search" value="%3$s" name="s" class="a11y-overlaysearch__input" autofocus data-rlvlive="true" data-rlvconfig="default" />
 			<button type="submit" form="a11y-overlaysearch" value="%4$s" class="a11y-overlaysearch__submit a11y-overlaysearch--icon"><span class="screen-reader-text">%4$s</span>%5$s</button>
 			</form>'. $results,
 			esc_url( $home_url ), // Form action.
@@ -158,16 +158,16 @@ class Overlay_Search_Public {
 	 *
 	 * @return void
 	 */
-	public function register_rest_route() {
-		$theme = wp_get_theme()->get( 'TextDomain' );
-	  	$route = $theme . '/v2';
+	// public function register_rest_route() {
+	// 	$theme = wp_get_theme()->get( 'TextDomain' );
+	//   	$route = $theme . '/v2';
 
-		register_rest_route( $route, '/search', [
-		    'methods'   => 'GET',
-		    'callback'  => 'a11y_overlaysearch_query_callback',
-		    'permission_callback' => '__return_true',
-	  	]);
-	}
+	// 	register_rest_route( $route, '/search', [
+	// 	    'methods'   => 'GET',
+	// 	    'callback'  => 'a11y_overlaysearch_query_callback',
+	// 	    'permission_callback' => '__return_true',
+	//   	]);
+	// }
 
 	/**
 	 * Search scripts

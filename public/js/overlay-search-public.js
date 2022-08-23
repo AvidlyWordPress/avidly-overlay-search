@@ -6,47 +6,47 @@
 		/**
 		* Search results
 	 	*/
-	    $('.a11y-overlaysearch__input').on( 'propertychange change click keyup input paste', debounce(function() {
-	      let search = $('.a11y-overlaysearch__input').val();
-	      let theme = theme_name.get_themename;
-	      let lang = document.documentElement.lang.substr(0, 2);
-	      let no_results = translations.no_results_found;
+	    // $('.a11y-overlaysearch__input').on( 'propertychange change click keyup input paste', debounce(function() {
+	    //   let search = $('.a11y-overlaysearch__input').val();
+	    //   let theme = theme_name.get_themename;
+	    //   let lang = document.documentElement.lang.substr(0, 2);
+	    //   let no_results = translations.no_results_found;
 
-	      if ( ! search.trim() ) {
-	        $('.a11y-overlaysearch_results').empty();
-	        return;
-	      }
+	    //   if ( ! search.trim() ) {
+	    //     $('.a11y-overlaysearch_results').empty();
+	    //     return;
+	    //   }
 
-	      $.getJSON( "/wp-json/" + theme + "/v2/search?s=" + search + "&lang=" + lang, function(results) {
-	        $('.a11y-overlaysearch_results').empty();
+	    //   $.getJSON( "/wp-json/" + theme + "/v2/search?s=" + search + "&lang=" + lang, function(results) {
+	    //     $('.a11y-overlaysearch_results').empty();
 
-	        if ( results.length === 0 ) {
-	          $('.a11y-overlaysearch_results').append( '<li class="no-results"><p>' + no_results + '</p></li>' );
-	        } else {
-	          $.each( results, function( i, result ) {
-	            $('.a11y-overlaysearch_results').append( '<li><p><a href="' + result.permalink + '"><span class="title">' + result.title + '</span><span class="post-type-badge">' + result.post_type + '</span></a></p></li>' );
-	          } );
-	        }
-	      } );
-	    }, 250) );
+	    //     if ( results.length === 0 ) {
+	    //       $('.a11y-overlaysearch_results').append( '<li class="no-results"><p>' + no_results + '</p></li>' );
+	    //     } else {
+	    //       $.each( results, function( i, result ) {
+	    //         $('.a11y-overlaysearch_results').append( '<li><p><a href="' + result.permalink + '"><span class="title">' + result.title + '</span><span class="post-type-badge">' + result.post_type + '</span></a></p></li>' );
+	    //       } );
+	    //     }
+	    //   } );
+	    // }, 250) );
 
     	/**
 	 	* Debounce
 	 	*/
-	    function debounce(func, wait, immediate) {
-	      let timeout;
-	      return function() {
-	        let context = this, args = arguments;
-	        let later = function() {
-	          timeout = null;
-	          if (!immediate) func.apply(context, args);
-	        };
-	        let callNow = immediate && !timeout;
-	        clearTimeout(timeout);
-	        timeout = setTimeout(later, wait);
-	        if (callNow) func.apply(context, args);
-	      };
-	    };
+	    // function debounce(func, wait, immediate) {
+	    //   let timeout;
+	    //   return function() {
+	    //     let context = this, args = arguments;
+	    //     let later = function() {
+	    //       timeout = null;
+	    //       if (!immediate) func.apply(context, args);
+	    //     };
+	    //     let callNow = immediate && !timeout;
+	    //     clearTimeout(timeout);
+	    //     timeout = setTimeout(later, wait);
+	    //     if (callNow) func.apply(context, args);
+	    //   };
+	    // };
 
 		// Open overlay search from button.
 		$('.a11y-overlaysearch__open').click(function(e) {
