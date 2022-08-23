@@ -154,22 +154,6 @@ class Overlay_Search_Public {
 	}
 
 	/**
-	 * Register rest route
-	 *
-	 * @return void
-	 */
-	// public function register_rest_route() {
-	// 	$theme = wp_get_theme()->get( 'TextDomain' );
-	//   	$route = $theme . '/v2';
-
-	// 	register_rest_route( $route, '/search', [
-	// 	    'methods'   => 'GET',
-	// 	    'callback'  => 'a11y_overlaysearch_query_callback',
-	// 	    'permission_callback' => '__return_true',
-	//   	]);
-	// }
-
-	/**
 	 * Search scripts
 	 *
 	 * @return void
@@ -179,7 +163,7 @@ class Overlay_Search_Public {
 		wp_enqueue_script( 'accessible_overlay_stylesheet', ['jquery'] );
 		$get_theme = wp_get_theme()->get( 'TextDomain' );
 		$theme = array( 'get_themename' => $get_theme );
-	 	wp_localize_script( 'accessible_overlay_stylesheet', 'theme_name', $theme );
+		wp_localize_script( 'accessible_overlay_stylesheet', 'theme_name', $theme );
 	}
 
 	/**
@@ -189,9 +173,9 @@ class Overlay_Search_Public {
 	 */
 	public function search_translations() {
 		wp_register_script( 'accessible_overlay_translations', '');
-	  	wp_enqueue_script( 'accessible_overlay_translations', ['jquery'] );
-	  	$translations = array( 'no_results_found' => __( 'No results found.', 'overlay-search' ) );
-	  	wp_localize_script( 'accessible_overlay_translations', 'translations', $translations );
+		wp_enqueue_script( 'accessible_overlay_translations', ['jquery'] );
+		$translations = array( 'no_results_found' => __( 'No results found.', 'overlay-search' ) );
+		wp_localize_script( 'accessible_overlay_translations', 'translations', $translations );
 	}
 
 }

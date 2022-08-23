@@ -31,4 +31,3 @@ function a11y_overlaysearch_button( $show_label = true, $class = '', $svg = '' )
 
 	return $button;
 }
-
